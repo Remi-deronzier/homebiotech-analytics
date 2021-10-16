@@ -25,7 +25,10 @@ public class Main {
 		TreeMap<String, Integer> sortedSymptoms = analyzingSymptomsFromList
 				.SortSymptomsAlphabetically(unsortedSymptoms);
 
-		System.out.println(sortedSymptoms);
+		// creating an instance of CreateAndWriteResultToFile
+		CreateAndWriteResultToFile resultFile = new CreateAndWriteResultToFile();
+		// creating and writing the results in "result.txt"
+		resultFile.WriteToFile(sortedSymptoms);
 	}
 
 }
