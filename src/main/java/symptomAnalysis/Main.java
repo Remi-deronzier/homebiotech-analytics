@@ -1,6 +1,8 @@
 package symptomAnalysis;
 
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * Main class to execute the whole program
@@ -16,7 +18,14 @@ public class Main {
 		// doing some operations
 		List<String> symptomList = readingSymptomsFromFile.GetSymptoms();
 
-		System.out.println(symptomList);
+		// creating an instance of CountAndSortSymptomFromList
+		CountAndSortSymptomFromList analyzingSymptomsFromList = new CountAndSortSymptomFromList(symptomList);
+		// doing some operations
+		Map<String, Integer> unsortedSymptoms = analyzingSymptomsFromList.GetSymptomsOccurrences();
+		TreeMap<String, Integer> sortedSymptoms = analyzingSymptomsFromList
+				.SortSymptomsAlphabetically(unsortedSymptoms);
+
+		System.out.println(sortedSymptoms);
 	}
 
 }
